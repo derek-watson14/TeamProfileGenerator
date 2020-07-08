@@ -38,6 +38,16 @@
 
 This project was built as an assignment for the University of Washington Full Stack Coding Bootcamp. The intent was to learn more about object oriented programing, test driven development and writing maintainable, modular code in general.
 
+### Minimum Requirements
+
+- Functional application.
+
+- GitHub repository with a unique name and a README describing the project.
+
+- User can use the CLI to generate an HTML page that displays information about their team.
+
+- All tests must pass.
+
 ### Built With
 
 - JavaScript
@@ -76,6 +86,14 @@ npm install
 ## Usage
 
 Use this program to quickly create a simple webpage that displays team member information for quick reference.
+
+After installation, use
+
+```sh
+node app
+```
+
+to start the application.
 
   <!-- LICENSE -->
 
