@@ -29,6 +29,7 @@
 ## Table of Contents
 
 - [About the Project](#about-the-project)
+  - [Minimum Project Requirements](#minimum-project-requirements)
   - [Built With](#built-with)
 - [Contributing](#contributing)
 - [License](#license)
@@ -38,7 +39,7 @@
 
 This project was built as an assignment for the University of Washington Full Stack Coding Bootcamp. The intent was to learn more about object oriented programing, test driven development and writing maintainable, modular code in general.
 
-### Minimum Requirements
+### Minimum Project Requirements
 
 - Functional application.
 

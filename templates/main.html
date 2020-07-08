@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>My Team</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/c502137733.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 jumbotron mb-3 team-heading">
-                <h1 class="text-center">My Team</h1>
-            </div>
+      <div class="row">
+        <div class="col-12 jumbotron mb-3 team-heading bg-info text-light">
+          <h1 class="text-center display-3 mb-3">Our Team</h1>
+          <p class="text-center lead">
+            Find useful information about your teammates below.
+          </p>
         </div>
+      </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="team-area col-12 d-flex justify-content-center">
-                {{ team }}
-            </div>
+    <div class="container mb-5">
+      <div class="row">
+        <div class="team-area col-12 d-flex justify-content-around flex-wrap">
+          {{ team }}
         </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

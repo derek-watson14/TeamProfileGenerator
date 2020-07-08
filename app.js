@@ -72,7 +72,7 @@ const addEngineer = async () => {
 
 const addIntern = async () => {
   const internQ = {
-    type: "number",
+    type: "input",
     message: "School:",
     name: "school",
   };
@@ -81,7 +81,6 @@ const addIntern = async () => {
 };
 
 const makeHtmlFile = (html) => {
-  // Create file path if it doesn't exsist
   fs.mkdir(OUTPUT_DIR, { recursive: true }, (err) => {
     if (err) throw err;
   });
