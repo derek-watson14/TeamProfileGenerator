@@ -13,6 +13,22 @@ const employees = [];
 
 const generateId = () => Math.random().toString(36).substr(2, 9);
 
+const validateEmail = async (input) => {
+  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(input)) {
+    return "Invalid email address";
+  } else {
+    return true;
+  }
+};
+
+const validateNumber = async (input) => {
+  if (isNaN(parseInt(input))) {
+    return "Not a number";
+  } else {
+    return true;
+  }
+};
+
 const askEmployeeInfo = async (uniqueQuestion) => {
   const questions = [
     {
@@ -24,6 +40,7 @@ const askEmployeeInfo = async (uniqueQuestion) => {
       type: "input",
       message: "Email:",
       name: "email",
+      validate: validateEmail,
     },
     uniqueQuestion,
   ];
@@ -34,9 +51,10 @@ const askEmployeeInfo = async (uniqueQuestion) => {
 
 const addManager = async () => {
   const managerQ = {
-    type: "number",
+    type: "input",
     message: "Office Number:",
     name: "officeNumber",
+    validate: validateNumber,
   };
   const { name, id, email, officeNumber } = await askEmployeeInfo(managerQ);
   employees.push(new Manager(name, id, email, officeNumber));
@@ -63,6 +81,7 @@ const addIntern = async () => {
 };
 
 const makeHtmlFile = (html) => {
+  // Create file path if it doesn't exsist
   fs.mkdir(OUTPUT_DIR, { recursive: true }, (err) => {
     if (err) throw err;
   });
@@ -77,23 +96,28 @@ const mainMenu = async () => {
       type: "list",
       message: "What would you like to do?",
       name: "choice",
-      choices: ["Add Manager", "Add Engineer", "Add Intern", "Done"],
+      choices: ["Add Manager", "Add Engineer", "Add Intern", "Render HTML"],
     },
   ]);
 
-  if (menu.choice === "Done") {
-    console.log("Rendering HTML...");
-    const html = render(employees);
-    makeHtmlFile(html);
-  } else if (menu.choice === "Add Manager") {
-    await addManager();
-    mainMenu();
-  } else if (menu.choice === "Add Engineer") {
-    await addEngineer();
-    mainMenu();
-  } else if (menu.choice === "Add Intern") {
-    await addIntern();
-    mainMenu();
+  switch (menu.choice) {
+    case "Add Manager":
+      await addManager();
+      mainMenu();
+      break;
+    case "Add Engineer":
+      await addEngineer();
+      mainMenu();
+      break;
+    case "Add Intern":
+      await addIntern();
+      mainMenu();
+      break;
+    case "Render HTML":
+      console.log("Rendering HTML...");
+      const html = render(employees);
+      makeHtmlFile(html);
+      break;
   }
 };
 
